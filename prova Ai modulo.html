@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Form HTML per generare codice HTML precompilato</title>
+  </head>
+  <body>
+    <h1>Compila il form</h1>
+    <form>
+      <label for="hp-correnti">HP Correnti:</label>
+      <input type="number" id="hp-correnti" name="hp-correnti"><br>
+
+      <label for="tpc">TpC:</label>
+      <input type="text" id="tpc" name="tpc"><br>
+
+      <label for="danni-tpc">Danni TpC:</label>
+      <input type="text" id="danni-tpc" name="danni-tpc"><br>
+
+      <label for="altra-azione1">Altra azione 1:</label>
+      <input type="text" id="altra-azione1" name="altra-azione1"><br>
+
+      <label for="altra-azione2">Altra azione 2:</label>
+      <input type="text" id="altra-azione2" name="altra-azione2"><br>
+
+      <label for="testo-post">Testo post:</label>
+      <textarea id="testo-post" name="testo-post"></textarea><br>
+
+      <input type="submit" value="Genera HTML">
+    </form>
+
+    <script>
+      const form = document.querySelector('form');
+
+      form.addEventListener('submit', (event) => {
+        event.preventDefault();
+        const hpCorrenti = document.getElementById('hp-correnti').value;
+        const tpc = document.getElementById('tpc').value;
+        const danniTpc = document.getElementById('danni-tpc').value;
+        const altraAzione1 = document.getElementById('altra-azione1').value;
+        const altraAzione2 = document.getElementById('altra-azione2').value;
+        const testoPost = document.getElementById('testo-post').value;
+
+        const html = `<div style="padding-bottom: 10px; width: 590px; background: #fff; height: autopx; box-shadow: 0px 0px 5px #555; padding-top: 15px; border-right: 4px solid #C7DCEB; border-left: 4px solid #C7DCEB; text-align: justify; font-family: arial; font-size: 12px; color: #333;" align="center"><h2 style="color: black; margin: 0px; text-align: center;">&nbsp;Antarr</h2><div style="margin-top: 0px; margin-bottom: 10px; font-family: cambria; font-size: 12px; color: black; text-transform: uppercase; text-align: center;">Ibrido | Druido/Magus | 9° | NN | <a title="Zakahr Antarr" href="https://bit.ly/2TI7aPw">Scheda</a>&nbsp;| <a title="Zakahr Diceroom" href="https://rolz.org/dr?room=zakahr_dice_room">diceroom</a></div><div style="float: left; margin-left: 10px; margin-right: 5px;"><div style="border: 0px solid #c0c0c0; width: 100px; height: 200px; background: url('https://i.im.ge/2023/01/07/qeAMxL.zakahr-2.png'); background-size: cover; background-position-x:-45px"><img></div></div><div style="height: 200px; overflow: auto; padding-left: 5px; padding-right: 5px; margin-right: 10px; font-family: arial; font-size: 12px; line-height: 1.2;"><p style="margin: 1px;">${testoPost}
+
+
+</p></div><div style="text-align: left; float: left; margin: 15px 0px 0px 10px; width: 177px; padding: 5px; border: solid #C7DCEB; border-width: 1px 0px 1px 0px; line-height: 16px; overflow: auto; height: 130px;"><b><u>HP</u></b> <i>${hpCorrenti}</i>/102
+<b><u>CA</u></b> 24 <b><u>RI</u></b> 20
+<b><u>TpC</u></b> ${tpc} (danni <b>${danniTpc}</b>)
+${altraAzione1}
+${altraAzione2}
+<b><u>Raggirare</u></b> 14
+<small>+ Attacco poderoso -2/+4
+<del>+ Ira Ispirata +1/+1</del></small>
+
+<b>Mischia</b>
+❧ 2 Artigli +15 (1d4+8/x2);
+❧ Morso del drago +15 (2d6+12/x2)
+<del>❧ Alabarda +5 accumula incantesimi +20 (1d10+13/×3, Puntare, Portata)
+❧ Spada bastarda +5 furiosa +20 (1d10+13, 19–20/×2);
+❧ 2 Pugnali celati +15 (1d4+5/19-20x2);</del>
+</div><div style="text-align: left; float: left; margin: 15px 5px 15px 5px; width: 176px; padding: 5px; border: solid #C7DCEB; border-width: 1px 0px 1px 0px; line-height: 16px; overflow: auto; height: 130px;"><b><u>HP</u></b> <i>28</i>/28
+<b><u>CA</u></b> 14
+
+<b>Mischia</b>
+♠ Pungiglione +5 (1d3-2 più Veleno)
+♠ morso +5 (1d2-2)
+
+<u><b>Incantesimi usati</b></u>
+<b>Lv0</b> ∞
+<b>Lv1</b> 0/4
+<b>Lv2</b> 1/3
+<b>Lv3</b> 0/2
+
+<b><u>Ira ispirata usata</u></b> 2 round
+
+</div><div style="text-align: left; margin: 15px 0px 0px 5px; width: 177px; padding: 5px; border: solid #C7DCEB; border-width: 1px 0px 1px 0px; line-height: 16px; overflow: auto; height: 130px;"><b><u>Equipaggiamento</u></b>
+0 [color=lightgrey]<b>MP</b>[/color] | <del>37.199</del> [color=gold]<b>MO</b>[/color] | <del>1.006</del> [color=lightsteelblue]<b>MA</b>[/color] | 0 [color=darkorange]<b>MR</b>[/color]<div style="border-bottom: 1px solid #000000; width: 100%; margin-top:5px"></div>
+<u><b>Capacità</b></u>
+
+❧ [URL=https://golarion.altervista.org/wiki/Incantesimi/Individuazione_del_Magico]Individuazione del magico[/URL] sempre attivo
+❧ Soffio del drago (0/1) (Rifl CD 20 dimezza - 1d6/DV)
+❧ Mutagene (0/1) (10/10 min)
+❧ Capacità magiche usate (-)
+❧ Incantesimi pronti (druido)
+Lv 1 6
+Lv 2 4
+Lv 3 3
+
+❧ Incantesimi pronti (magus)
+Lv 1 5
+Lv2 5
+Lv3 3
+❧ Forma di Drago II (usati 1/8 min): +6 for, +4 cos (+36 hp), +6 ca, 8d8 (Rifl CD 19 dimezza), morso (2d6), 2 artigli (1d8), 2 attacchi d’ala (1d6), un colpo di coda (1d8)
+
+</div>
+- <b>Turni:</b> Zakahr - Liz - Nyves - Balerion</div>`;
+
+        const temp = document.createElement('textarea');
+        temp.value = html;
+        document.body.appendChild(temp);
+        temp.select();
+        document.execCommand('copy');
+        document.body.removeChild(temp);
+
+        alert('Il codice HTML è stato copiato nella clipboard!');
+      });
+    </script>
+  </body>
+</html>
