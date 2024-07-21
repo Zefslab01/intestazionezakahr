@@ -6,7 +6,10 @@
   <body>
     <h1>Compila il form</h1>
     <form>
-      <div style="padding-bottom: 10px; width: 590px; background: #fff; height: autopx; box-shadow: 0px 0px 5px #555; padding-top: 15px; border-right: 4px solid #C7DCEB; border-left: 4px solid #C7DCEB; text-align: justify; font-family: arial; font-size: 12px; color: #333;" align="center"><h2 style="color: black; margin: 0px; text-align: center;">&nbsp;Zakahr Antarr</h2><div style="margin-top: 0px; margin-bottom: 10px; font-family: cambria; font-size: 12px; color: black; text-transform: uppercase; text-align: center;">Ibrido | Druido/Magus | 9&deg; | NN | <a title="Zakahr Antarr" href="https://bit.ly/2TI7aPw">Scheda</a>&nbsp;| <a title="Zakahr Diceroom" href="https://rolz.org/dr?room=zakahr_dice_room">diceroom</a></div><div style="float: left; margin-left: 10px; margin-right: 5px;"><div style="border: 0px solid #c0c0c0; width: 100px; height: 200px; background: url('https://i.im.ge/2023/01/07/qeAMxL.zakahr-2.png'); background-size: cover; background-position-x: -45px;"><img /></div></div><div style="height: 200px; overflow: auto; padding-left: 5px; padding-right: 5px; margin-right: 10px; font-family: arial; font-size: 12px; line-height: 1.2;"><p style="margin: 1px;"><label for="testo-post">Testo post:</label> <br /><textarea id="testo-post" cols="55" name="testo-post" rows="20"></textarea></p></div><div style="float: left; margin-right: 10px; margin-left: 10px; width: 180px; border-top: 1px solid #C7DCEB; border-bottom: 1px solid #C7DCEB; padding-bottom: 5px; margin-top: 15px; line-height: 16px;"><div style="margin-top: 5px; padding-left: 5px; padding-right: 5px; height: 130px; overflow: auto;"><p style="margin: 0px;"><strong><u>HP</u></strong>&nbsp;<em><input id="hp-correnti" style="width: 20px;" maxlength="3" name="hp-correnti" required="" type="text" /></em>/102&nbsp;</p><p style="margin: 0px;"><strong><u>CA</u></strong> 24&nbsp;<strong><u>RI</u></strong>&nbsp;20</p><p style="margin: 0px; text-align: left;"><strong><u>TpC</u></strong>&nbsp;<input id="tpc" style="width: 20px;" name="tpc" required="" type="text" /> (danni <strong><input id="danni-tpc" style="width: 20px;" name="danni-tpc" required="" type="text" /></strong>)</p>
+      <div style="padding-bottom: 10px; width: 590px; background: #fff; height: autopx; box-shadow: 0px 0px 5px #555; padding-top: 15px; border-right: 4px solid #C7DCEB; border-left: 4px solid #C7DCEB; text-align: justify; font-family: arial; font-size: 12px; color: #333;" align="center"><h2 style="color: black; margin: 0px; text-align: center;">&nbsp;Zakahr Antarr</h2><div style="margin-top: 0px; margin-bottom: 10px; font-family: cambria; font-size: 12px; color: black; text-transform: uppercase; text-align: center;">Ibrido | Druido/Magus | 9&deg; | NN | <a title="Zakahr Antarr" href="https://bit.ly/2TI7aPw">Scheda</a>&nbsp;| <a title="Zakahr Diceroom" href="https://rolz.org/dr?room=zakahr_dice_room">diceroom</a></div><div style="float: left; margin-left: 10px; margin-right: 5px;"><div style="border: 0px solid #c0c0c0; width: 100px; height: 200px; background: url('https://i.im.ge/2023/01/07/qeAMxL.zakahr-2.png'); background-size: cover; background-position-x: -45px;"><img /></div></div><div style="height: 200px; overflow: auto; padding-left: 5px; padding-right: 5px; margin-right: 10px; font-family: arial; font-size: 12px; line-height: 1.2;"><p style="margin: 1px;"><label for="testo-post">Testo post:</label> <div id="formatting-buttons"> 
+		<button id="bold-button">Grassetto</button> 
+		<button id="italic-button">Corsivo</button> 
+	</div> <br /><textarea id="testo-post" cols="55" name="testo-post" rows="20"></textarea></p></div><div style="float: left; margin-right: 10px; margin-left: 10px; width: 180px; border-top: 1px solid #C7DCEB; border-bottom: 1px solid #C7DCEB; padding-bottom: 5px; margin-top: 15px; line-height: 16px;"><div style="margin-top: 5px; padding-left: 5px; padding-right: 5px; height: 130px; overflow: auto;"><p style="margin: 0px;"><strong><u>HP</u></strong>&nbsp;<em><input id="hp-correnti" style="width: 20px;" maxlength="3" name="hp-correnti" required="" type="text" /></em>/102&nbsp;</p><p style="margin: 0px;"><strong><u>CA</u></strong> 24&nbsp;<strong><u>RI</u></strong>&nbsp;20</p><p style="margin: 0px; text-align: left;"><strong><u>TpC</u></strong>&nbsp;<input id="tpc" style="width: 20px;" name="tpc" required="" type="text" /> (danni <strong><input id="danni-tpc" style="width: 20px;" name="danni-tpc" required="" type="text" /></strong>)</p>
         <label for="bonus1">bonus al tpc:</label><br>
         <small><input id="bonus1" style="width: 100px;" name="bonus1" required="" type="text" /></small><br>
         <small><input id="bonus2" style="width: 100px;" name="bonus2" required="" type="text" /></small><br>
@@ -31,6 +34,27 @@
         const bonus1 = document.getElementById('bonus1').value;
         const bonus2 = document.getElementById('bonus2').value;
         const bonus3 = document.getElementById('bonus3').value;
+
+
+        // FORMATTAZIONE NELLA TEXTAREA PARAM1 Otteniamo l'elemento textarea e i pulsanti di formattazione 
+		const textarea = document.getElementById('testo-post'); 
+		const boldButton = document.getElementById('bold-button'); 
+		const italicButton = document.getElementById('italic-button'); 
+ 
+//Fa funzionare i tasti grassetto e corstivo e Evita che spingere i pulsanti faccia ricaricare la pagina 
+boldButton.addEventListener('click', function(event) { 
+	event.preventDefault(); 
+	const selectedText = textarea.value.substring(textarea.selectionStart, textarea.selectionEnd); 
+	const boldedText = '<b>' + selectedText + '</b>'; 
+	textarea.setRangeText(boldedText, textarea.selectionStart, textarea.selectionEnd, 'end'); 
+}); 
+ 
+italicButton.addEventListener('click', function(event) { 
+	event.preventDefault(); 
+	const selectedText = textarea.value.substring(textarea.selectionStart, textarea.selectionEnd); 
+	const italicizedText = '<i>' + selectedText + '</i>'; 
+	textarea.setRangeText(italicizedText, textarea.selectionStart, textarea.selectionEnd, 'end'); 
+}); 
 
         const html = `<div style="padding-bottom: 10px; width: 590px; background: #fff; height: autopx; box-shadow: 0px 0px 5px #555; padding-top: 15px; border-right: 4px solid #C7DCEB; border-left: 4px solid #C7DCEB; text-align: justify; font-family: arial; font-size: 12px; color: #333;" align="center"><h2 style="color: black; margin: 0px; text-align: center;">&nbsp;Antarr</h2><div style="margin-top: 0px; margin-bottom: 10px; font-family: cambria; font-size: 12px; color: black; text-transform: uppercase; text-align: center;">Ibrido | Druido/Magus | 9° | NN | <a title="Zakahr Antarr" href="https://bit.ly/2TI7aPw">Scheda</a>&nbsp;| <a title="Zakahr Diceroom" href="https://rolz.org/dr?room=zakahr_dice_room">diceroom</a></div><div style="float: left; margin-left: 10px; margin-right: 5px;"><div style="border: 0px solid #c0c0c0; width: 100px; height: 200px; background: url('https://i.im.ge/2023/01/07/qeAMxL.zakahr-2.png'); background-size: cover; background-position-x:-45px"><img></div></div><div style="height: 200px; overflow: auto; padding-left: 5px; padding-right: 5px; margin-right: 10px; font-family: arial; font-size: 12px; line-height: 1.2;"><p style="margin: 1px;">${testoPost}
 
